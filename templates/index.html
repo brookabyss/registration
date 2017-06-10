@@ -6,6 +6,21 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
   </head>
   <body>
-    <p>Hello</p>
+    <h1>Registration Form</h1>
+    <form class="" action="/process" method="post">
+      <label>Email: </label><input type="text" name="email" value=""><br>
+      <label>First Name: </label><input type="text" name="first_name" value=""><br>
+      <label>Last Name: </label><input type="text" name="last_name" value=""><br>
+      <label>Password: </label><input type="password" name="password" value=""><br>
+      <label>Confirm Password: </label><input type="password" name="confirm" value=""><br>
+      <input type="submit" name="submit" value="Submit">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p>{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </form>
   </body>
 </html>
